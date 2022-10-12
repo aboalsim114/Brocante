@@ -63,6 +63,7 @@
     </section>
     <?php  require("./Composants/Footer.php")  ?>
     <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

@@ -27,6 +27,7 @@
                             />
                         </div>
                         <div class="col-xl-6">
+                            <form action="" method="post">
                             <div class="card-body p-md-5 text-black">
                                 <h3 class="mb-5 text-uppercase">formulaire d'inscription </h3>
 
@@ -98,6 +99,7 @@
                                 </div>
 
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -109,6 +111,7 @@
     <?php  require("./Composants/Footer.php")  ?>
 
     <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
