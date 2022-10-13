@@ -1,16 +1,45 @@
 <?php
+session_start();
 
 require("./Config/config.php");
 
-session_start();
 
-$email = $_SESSION["email"];
 
-$sql = "SELECT * FROM user WHERE email='$email' ";
+
+
+
+
+
+$emailS = $_SESSION["email"];
+
+$sql = "SELECT * FROM user WHERE email='$emailS' ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();
 $result = $stmt->get_result();
+
+
+
+
+/* update Profile */
+
+if(isset($_POST["submit"])){
+    $nom = htmlspecialchars($_POST["nom"]);
+    $prenom = htmlspecialchars($_POST["prenom"]);
+    $adresse = htmlspecialchars($_POST["adresse"]);
+    $postale = htmlspecialchars($_POST["postale"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+
+
+
+    $qyerry = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postale='$postale', email='$email',password='$password'  WHERE email='$emailS'";
+
+    $conn->query($qyerry);
+    
+
+
+}
 
 
 
@@ -22,7 +51,7 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile</title>
+    <title><?= $item["prenom"] . " " . $item["nom"]  ?></title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,800%7COpen+Sans:400,400i,700" rel="stylesheet">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -41,23 +70,27 @@ $result = $stmt->get_result();
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $item["prenom"] . " " . $item["nom"]  ?></span><span class="text-black-50"><?= $_SESSION["email"]  ?></span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
+            <form  method="post">
+            
+            
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Paramètres de profil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" placeholder="<?= $item["nom"]  ?>" value=""></div>
-                    <div class="col-md-6"><label class="labels">Prenom</label><input type="text" class="form-control" value="" placeholder="<?= $item["prenom"]  ?>"></div>
+                    <div class="col-md-6"><label class="labels">Nom</label><input name="nom" type="text" class="form-control" placeholder="<?= $item["nom"]  ?>" value="<?= $item["nom"]  ?>"></div>
+                    <div class="col-md-6"><label class="labels">Prenom</label><input name="prenom" type="text" class="form-control" value="<?= $item["prenom"]  ?>" placeholder="<?= $item["prenom"]  ?>"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">adresse </label><input type="text" class="form-control" placeholder="<?= $item["adresse"]  ?>" value=""></div>
-                    <div class="col-md-12"><label class="labels">Code Postal</label><input type="text" class="form-control" placeholder="<?= $item["postal"] ?>" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email </label><input type="text" class="form-control" placeholder="<?= $item["email"]  ?>" value=""></div>
-                    <div class="col-md-12"><label class="labels">Mot de passe</label><input type="password" class="form-control" placeholder="*********" value=""></div>
+                    <div class="col-md-12"><label class="labels">adresse </label><input name="adresse" type="text" class="form-control" placeholder="<?= $item["adresse"]  ?>" value="<?= $item["adresse"]  ?>"></div>
+                    <div class="col-md-12"><label class="labels">Code Postal</label><input type="text" name="postale" class="form-control" placeholder="<?= $item["postal"] ?>" value="<?= $item["postal"] ?>"></div>
+                    <div class="col-md-12"><label class="labels">Email </label><input type="text" name="email" class="form-control" placeholder="<?= $item["email"]  ?>" value="<?= $item["email"]  ?>"></div>
+                    <div class="col-md-12"><label class="labels">Mot de passe</label><input type="password" name="password" class="form-control" placeholder="*********" value="<?= $item["password"] ?>"></div>
                 </div>
                
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Enregistrer le profil  <i class="fa-solid fa-pen-to-square"></i></button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" name="submit" type="submit">Enregistrer le profil  <i class="fa-solid fa-pen-to-square"></i></button></div>
             </div>
+        </form>
         </div>
       
     </div>
