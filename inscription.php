@@ -1,3 +1,91 @@
+<!-- php section  -->
+<?php
+
+require("./Config/config.php");
+
+global $msgerror;
+global $msgsuccess;
+ $success = FALSE;
+if(isset($_POST["submit"])){
+
+    $nom = htmlspecialchars($_POST["nom"]);
+    $prenom = htmlspecialchars($_POST["prenom"]);
+    $Adresse = htmlspecialchars($_POST["Adresse"]);
+    $postal = htmlspecialchars($_POST["postal"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars(md5($_POST["password"]));
+    $genre = htmlspecialchars($_POST["genre"]);
+    
+/* verifie si le mot de passe fait moins de 10 caracteres*/
+
+
+    
+/* verifi si les champs du form sont vide ou pas  */
+
+    if(empty($nom) or empty($prenom) or empty($Adresse) or empty($postal) or empty($email) or empty($password) or empty($genre) or strlen($password) < 10 ){
+        $msgerror = "veuillez saisir tout vos champs";
+        exit(0);
+    }
+
+
+/* verifier si les information entrer existent deja dans la base de donnée */        
+
+$sql_e = "SELECT * FROM user WHERE email='$email'";
+$res_e = mysqli_query($conn, $sql_e);
+
+if (mysqli_num_rows($res_e) > 0) {
+    echo("<script type='text/javascript'>alert('ce Mail est deja pris')</script>");
+
+}
+
+if (strlen($_POST["password"]) <= '10') {
+    echo("<script type='text/javascript'>alert('Votre mot de passe doit faire plus de 10 caractères ')</script>");
+}
+
+
+else{
+
+    /* req */        
+    $sql = "INSERT INTO user (prenom,nom,adresse,postal,email,password,genre) VALUES ('$prenom', '$nom','$Adresse','$postal','$email','$password','$genre') ";
+    
+/* si tout les champs sont rempli alors  */
+if(mysqli_query($conn , $sql)){
+    $msgsuccess = "ton compte a bien été cree";
+    $success = TRUE;
+    
+    
+}
+
+
+
+else {
+    echo "Error: " . $sql . "
+    " . mysqli_error($conn);
+}
+
+}
+        
+    
+   
+    }
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+?>
+
+
+<!-- html  -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +105,28 @@
 
 <?php  require("./Composants/Nav.php")  ?>
 
+
+
+
+    <?php if($success == TRUE): ?>
+    
+        <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">félicitation <?=  $prenom  ?></h4>
+  <p>votre compte a été créé avec succès</p>
+  <hr>
+<a href="connexion.php">Connectez-vous</a>
+</div>
+
+
+    <?php endif ?>
+
+
+
+
+
+
+
+
     <section class="h-100 bg-white">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -27,20 +137,22 @@
                             />
                         </div>
                         <div class="col-xl-6">
-                            <form action="" method="post">
+                            <form  method="post">
                             <div class="card-body p-md-5 text-black">
+                                
                                 <h3 class="mb-5 text-uppercase">formulaire d'inscription </h3>
+                            
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" id="form3Example1m" name="prenom" class="form-control form-control-lg" />
+                                            <input required type="text" id="form3Example1m" name="prenom" class="form-control form-control-lg" />
                                             <label class="form-label" for="form3Example1m">Prénom</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input name="nom" type="text" id="form3Example1n" class="form-control form-control-lg" />
+                                            <input required name="nom" type="text" id="form3Example1n" class="form-control form-control-lg" />
                                             <label class="form-label" for="form3Example1n">Nom</label>
                                         </div>
                                     </div>
@@ -48,20 +160,20 @@
 
 
 
-                                <div class="form-outline mb-4">
-                                    <input name="Adresse" type="text" id="form3Example8" class="form-control form-control-lg" />
+                                <div class="form-outline mb-4" autocomplete="off">
+                                    <input required name="Adresse" type="text" id="form3Example8" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example8">Adresse</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input name="postal" type="text" id="form3Example8" class="form-control form-control-lg" />
+                                    <input required name="postal" type="text" id="form3Example8" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example8">Code Postal</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input name="email" type="email" id="form3Example8" class="form-control form-control-lg" />
+                                    <input required name="email" type="email" id="form3Example8" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example8">Votre Mail</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input name="password" type="password" id="form3Example8" class="form-control form-control-lg" />
+                                    <input required name="password" type="password" id="form3Example8" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example8">Mot de passe</label>
                                 </div>
 
@@ -70,15 +182,11 @@
 
                                     <h6 class="mb-0 me-4">Le genre: </h6>
 
-                                    <div class="form-check form-check-inline mb-0 me-4">
-                                        <input name="femme" class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" />
-                                        <label class="form-check-label" for="femaleGender">Femme</label>
-                                    </div>
-
-                                    <div class="form-check form-check-inline mb-0 me-4">
-                                        <input name="homme" class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
-                                        <label class="form-check-label" for="maleGender">Homme</label>
-                                    </div>
+                                    <select required name="genre" class="form-select" aria-label="Default select example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="homme">Homme</option>
+                                    <option value="femme">Femme</option>
+                                    </select>
 
 
 
@@ -94,8 +202,8 @@
 
 
                                 <div class="d-flex justify-content-end pt-3">
-                                    <button type="button" class="btn btn-light btn-lg">Reset all</button>
-                                    <button name="submit" type="button" type="submit" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                                    <button type="button" class="btn btn-light btn-lg">Supprimer tout</button>
+                                    <button name="submit"  type="submit" class="btn btn-warning btn-lg ms-2">Cree mon compte</button>
                                 </div>
 
                             </div>
@@ -109,6 +217,7 @@
     </section>
 
     <?php  require("./Composants/Footer.php")  ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
 
