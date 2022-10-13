@@ -10,9 +10,9 @@ require("./Config/config.php");
 
 
 
-$emailS = $_SESSION["email"];
+$id = $_SESSION["id"];
 
-$sql = "SELECT * FROM user WHERE email='$emailS' ";
+$sql = "SELECT * FROM user WHERE id='$id' ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();
@@ -33,7 +33,7 @@ if(isset($_POST["update"])){
 
   
 
-    $query = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postal='$postale',password='$password'  WHERE email='$email'";
+    $query = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postal='$postale',password='$password'  WHERE id='$id'";
     $result = $conn->query($query);
     header("location:Profile.php");
    
@@ -73,7 +73,7 @@ if(isset($_POST["update"])){
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $item["prenom"] . " " . $item["nom"]  ?></span><span class="text-black-50"><?= $_SESSION["email"]  ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $item["prenom"] . " " . $item["nom"]  ?></span><span class="text-black-50"><?= $item["email"] ?></span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
             

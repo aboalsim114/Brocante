@@ -1,15 +1,16 @@
 <?php
 
+session_start();
 
 require("./Config/config.php");
 
 
-  $sql = "SELECT * FROM annonce ";
-  $stmt = $conn->prepare($sql); 
 
-  $stmt->execute();
-  $result = $stmt->get_result();
+$sql = "SELECT * FROM annonce ";
+$stmt = $conn->prepare($sql); 
 
+$stmt->execute();
+$result = $stmt->get_result();
 
 
 
@@ -50,23 +51,23 @@ require("./Config/config.php");
 
     <section class="cards-container">
         
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="card">
-                <div class="card-img">
-                    <img src="./img/<?= $row["filename"]  ?>" alt="" srcset="">
-                </div>
-                <div class="card-titre">
-                    <h2><?=  $row["titre"] ?></h2>
-                </div>
-                <div class="card-footer"><a href="#">Voir Plus</a></div>
-    
+    <?php foreach($result as $row): ?>
+        <div class="card">
+            <div class="card-img">
+                <img src="./img/<?= $row["filename"]  ?>" alt="" srcset="">
             </div>
-           
-            <?php endwhile ?>
-            
-    
-    
-        </section>
+            <div class="card-titre">
+                <h2><?=  $row["titre"] ?></h2>
+            </div>
+            <div class="card-footer"><a href="annonceDetail.php?id=<?= $row["id"] ?>">Voir Plus</a></div>
+
+        </div>
+       
+        <?php endforeach ?>
+        
+
+
+    </section>
     
 
 

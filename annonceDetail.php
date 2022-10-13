@@ -4,18 +4,14 @@ session_start();
 
 require("./Config/config.php");
 
-if(!isset($_SESSION["id"])){
-    header("Location: index.php");
-    
-    exit(); 
-  }
 
 
 
+  $id = $_GET["id"];
 
-  $sql = "SELECT * FROM annonce ";
+  $sql = "SELECT * FROM annonce WHERE id='$id' ";
   $stmt = $conn->prepare($sql); 
-
+  
   $stmt->execute();
   $result = $stmt->get_result();
 
@@ -24,11 +20,10 @@ if(!isset($_SESSION["id"])){
 
 
 
-
-
-
 ?>
 
+
+<?php  foreach($result as $item): ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,40 +44,34 @@ if(!isset($_SESSION["id"])){
 
 <body>
 
-  <?php  require("./Composants/Nav2.php") ?>
-
-    <header>
-
-        <form class="searchForm" method="post">
-           
-            <input type="search" placeholder="rechercher un article">
-            <input type="text" name="" id="" placeholder="entrez une ville">
-            <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-
-        </form>
-    </header>
 
 
-    <section class="cards-container">
-        
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="card">
-            <div class="card-img">
-                <img src="./img/<?= $row["filename"]  ?>" alt="" srcset="">
-            </div>
-            <div class="card-titre">
-                <h2><?=  $row["titre"] ?></h2>
-            </div>
-            <div class="card-footer"><a href="annonceDetail.php?id=<?= $row["id"] ?>">Voir Plus</a></div>
+  <?php
+  if(isset($_SESSION["id"])){
+      require("./Composants/Nav2.php") ;
+}
+else{
+    require("./Composants/Nav.php") ;
+}
+   
+   ?>
 
+ <!-- detail border card -->
+ 
+ 
+ <div class="productPage">
+        <div class="productTitre">
+            <h1><?=  $item["titre"]  ?></h1>
         </div>
-       
-        <?php endwhile ?>
-        
-
-
-    </section>
-
+    
+        <div class="productbody">
+        <p><?= $item["description"]  ?></p>
+    </div>
+        <div class="productImg">
+            <img src="./img/<?=  $item["filename"]  ?>" alt="" srcset="">
+        </div>
+    
+    </div>
 
 
     <!-- footer section -->
@@ -93,3 +82,4 @@ if(!isset($_SESSION["id"])){
 </body>
 
 </html>
+<?php endforeach ?>

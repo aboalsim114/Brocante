@@ -10,16 +10,15 @@ if(!isset($_SESSION["id"])){
     exit(); 
   }
 
+$id = $_SESSION["id"];
 
 
 
-  $sql = "SELECT * FROM annonce ";
+  $sql = : "SELECT * FROM annonce INNER JOIN user ON(annonce.userid=user.id)";
   $stmt = $conn->prepare($sql); 
 
   $stmt->execute();
   $result = $stmt->get_result();
-
-
 
 
 
@@ -51,16 +50,6 @@ if(!isset($_SESSION["id"])){
 
   <?php  require("./Composants/Nav2.php") ?>
 
-    <header>
-
-        <form class="searchForm" method="post">
-           
-            <input type="search" placeholder="rechercher un article">
-            <input type="text" name="" id="" placeholder="entrez une ville">
-            <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-
-        </form>
-    </header>
 
 
     <section class="cards-container">

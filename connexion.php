@@ -21,9 +21,12 @@ if(isset($_POST["submit"])){
     $result = mysqli_query($conn,$sql);
      
     if(mysqli_num_rows($result) == 1){
-        $_SESSION['email'] = $email;
-        
+        while($row = mysqli_fetch_assoc($result)) {
+            $_SESSION['id'] = $row["id"];
+        }
         header("Location: index2.php");
+        
+        
     }else{
         echo("<script type='text/javascript'>alert('email ou mot de passe invalide ')</script>");
     }

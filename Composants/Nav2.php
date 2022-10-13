@@ -1,3 +1,6 @@
+
+
+
 <nav>
         <div class="logo">
             
@@ -11,8 +14,9 @@
             <button class="dropbtn"><i class="fa-solid fa-user"></i></button>
             <div class="dropdown-content">
             
-            <a href="index2.php"><i class="fa-solid fa-house-user"></i>Accueil</a>
+            <a href="index2.php"><i class="fa-solid fa-house-user"></i> Accueil</a>
             <a href="Profile.php"><i class="fa-solid fa-gear"></i> Mon Compte</a>
+            <a href="MesAnnonces.php"><i class="fa-sharp fa-solid fa-address-card"></i> Mes Annonces</a>
             <a href="./Composants/Logout.php"><i class="fa-solid fa-right-from-bracket"></i> deconnexion</a>
 
             
@@ -71,3 +75,4 @@
         </div>
 
     </nav>
+ 

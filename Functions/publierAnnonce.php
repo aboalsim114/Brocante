@@ -31,6 +31,7 @@ if(isset($_POST["submit"])){
 
      move_uploaded_file($tempname, $folder);
     header("location:../index2.php");
+
    
 
 
