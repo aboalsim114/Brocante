@@ -21,9 +21,9 @@ $result = $stmt->get_result();
 
 
 
-/* update Profile */
 
-if(isset($_POST["submit"])){
+/* update Profile */
+if(isset($_POST["update"])){
     $nom = htmlspecialchars($_POST["nom"]);
     $prenom = htmlspecialchars($_POST["prenom"]);
     $adresse = htmlspecialchars($_POST["adresse"]);
@@ -31,15 +31,19 @@ if(isset($_POST["submit"])){
     $email = htmlspecialchars($_POST["email"]);
     $password = htmlspecialchars($_POST["password"]);
 
+  
 
+    $query = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postal='$postale',password='$password'  WHERE email='$email'";
+    $result = $conn->query($query);
+    header("location:Profile.php");
+   
 
-    $qyerry = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postale='$postale', email='$email',password='$password'  WHERE email='$emailS'";
-
-    $conn->query($qyerry);
-    
+   
 
 
 }
+
+
 
 
 
@@ -64,13 +68,13 @@ if(isset($_POST["submit"])){
 
     <!--  -->
 
+    <form  method="post">
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $item["prenom"] . " " . $item["nom"]  ?></span><span class="text-black-50"><?= $_SESSION["email"]  ?></span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
-            <form  method="post">
             
             
             <div class="p-3 py-5">
@@ -88,15 +92,15 @@ if(isset($_POST["submit"])){
                     <div class="col-md-12"><label class="labels">Mot de passe</label><input type="password" name="password" class="form-control" placeholder="*********" value="<?= $item["password"] ?>"></div>
                 </div>
                
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" name="submit" type="submit">Enregistrer le profil  <i class="fa-solid fa-pen-to-square"></i></button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" name="update" type="submit">Enregistrer le profil  <i class="fa-solid fa-pen-to-square"></i></button></div>
             </div>
-        </form>
         </div>
-      
+        
     </div>
 </div>
 </div>
 </div>
+</form>
 
 <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
 
