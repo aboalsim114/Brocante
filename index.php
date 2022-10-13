@@ -1,3 +1,22 @@
+<?php
+
+
+require("./Config/config.php");
+
+
+  $sql = "SELECT * FROM annonce ";
+  $stmt = $conn->prepare($sql); 
+
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,24 +49,25 @@
 
 
     <section class="cards-container">
-        <?php for ($i=0; $i < 5; $i++): ?> 
+        
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="card">
+                <div class="card-img">
+                    <img src="./img/<?= $row["filename"]  ?>" alt="" srcset="">
+                </div>
+                <div class="card-titre">
+                    <h2><?=  $row["titre"] ?></h2>
+                </div>
+                <div class="card-footer"><a href="#">Voir Plus</a></div>
+    
+            </div>
+           
+            <?php endwhile ?>
             
-        <div class="card">
-            <div class="card-img">
-                <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80" alt="" srcset="">
-            </div>
-            <div class="card-titre">
-                <h2>titre</h2>
-            </div>
-            <div class="card-footer"><a href="#">Voir Plus</a></div>
-
-        </div>
-       
-
-        <?php endfor ?>
-
-
-    </section>
+    
+    
+        </section>
+    
 
 
 

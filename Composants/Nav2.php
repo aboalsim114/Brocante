@@ -31,7 +31,7 @@
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form method="post" style="width: auto;">
+      <form action="./Functions/publierAnnonce.php" method="post" enctype="multipart/form-data" style="width: auto;">
                             
                           
                             <div class="form-outline mb-4">
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-outline mb-4">
-                            <textarea name="description" class="form-control" id="textAreaExample" rows="4"></textarea>
+                            <textarea required name="description" class="form-control" id="textAreaExample" rows="4"></textarea>
                             <label class="form-label" for="textAreaExample">Description</label>
                           </div>
 
@@ -50,11 +50,11 @@
                             </div>
 
                             <div >
-                            <input type="file" class="form-control" id="customFile" />
+                            <input required name="image" type="file" class="form-control" id="customFile" />
                             </div>
                             <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
                                           
                         </form>
                     </div>
