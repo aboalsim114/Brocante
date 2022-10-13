@@ -22,7 +22,6 @@
     <header>
 
         <form class="searchForm" method="post">
-            <h2 style="text-align: center;">trouvez la bonne affaire sur le site référent de petites annonces de particulier à particulier</h2>
             <input type="search" placeholder="rechercher un article">
             <input type="text" name="" id="" placeholder="entrez une ville">
             <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>

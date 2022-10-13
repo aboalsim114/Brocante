@@ -77,7 +77,6 @@ a {
 }
 
 header {
-    border: 1px solid black;
     width: 100%;
     height: auto;
     display: flex;
@@ -87,7 +86,12 @@ header {
     background-repeat: no-repeat;
     background-attachment: fixed;
     flex-direction: row;
-    background-color: #1a1a1a;
+    background-color: rgb(245, 240, 240);
+    padding: 50px;
+}
+
+footer {
+    border: 1px solid black;
 }
 
 .searchForm>input[type="text"],
@@ -129,15 +133,22 @@ header>.searchForm {
     flex-direction: column;
     gap: 20px;
     font-family: "Montserrat", "Segoe UI", sans-serif;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .card {
     border: 1px solid black;
-    width: 750px;
+    width: auto;
     height: 292px;
     margin-left: 20px;
     display: flex;
     flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(211, 211, 212, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(211, 211, 212, 1);
+    box-shadow: 8px 8px 24px 0px rgba(211, 211, 212, 1);
 }
 
 #btn-deposer-article {
