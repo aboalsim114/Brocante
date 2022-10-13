@@ -16,7 +16,7 @@ if(isset($_POST["submit"])){
     $password = htmlspecialchars(md5($_POST["password"]));
     $genre = htmlspecialchars($_POST["genre"]);
     
-/* verifie si le mot de passe fait moins de 10 caracteres*/
+
 
 
     

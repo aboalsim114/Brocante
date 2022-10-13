@@ -1,3 +1,53 @@
+<?php
+session_start();
+require("./Config/config.php");
+
+
+global $errinfo;
+if(isset($_POST["submit"])){
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+
+    /* verifi si les champs du form sont vide ou pas  */
+
+    if( empty($email) or empty($password) ){
+        $msgerror = "veuillez saisir tout vos champs";
+        exit(0);
+    }
+
+
+    $sql = "SELECT * FROM user WHERE  email='$email' and password='".hash('md5', $password)."'";
+
+    $result = mysqli_query($conn,$sql);
+     
+    if(mysqli_num_rows($result) == 1){
+        $_SESSION['email'] = $email;
+        
+        header("Location: index2.php");
+    }else{
+        echo("<script type='text/javascript'>alert('email ou mot de passe invalide ')</script>");
+    }
+
+
+}
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,23 +78,22 @@
                     </div>
 
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-
-                        <form style="width: auto;">
-
+                        <form method="post" style="width: auto;">
+                            
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connexion</h3>
-
+                          
                             <div class="form-outline mb-4">
-                                <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                                <input required name="email" type="email" id="form2Example18" class="form-control form-control-lg" />
                                 <label class="form-label" for="form2Example18">Adresse e-mail</label>
                             </div>
 
                             <div class="form-outline mb-4">
-                                <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                                <input required name="password" type="password" id="form2Example28" class="form-control form-control-lg" />
                                 <label class="form-label" for="form2Example28">Mot de passe</label>
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="button">Connexion</button>
+                                <button type="submit" name="submit" class="btn btn-info btn-lg btn-block" >Connexion</button>
                             </div>
 
                             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">mot de passe oublié?</a></p>
