@@ -101,7 +101,6 @@ if(isset($_POST["submit"])){
                                 <button type="submit" name="submit" class="btn btn-info btn-lg btn-block" >Connexion</button>
                             </div>
 
-                            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">mot de passe oublié?</a></p>
                             <p>Vous n'avez pas de compte ? <a href="inscription.html" class="link-info">Cree Mon Compte</a></p>
 
                         </form>
