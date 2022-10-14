@@ -6,7 +6,7 @@ require("./Config/config.php");
 
 
 
-$sql = "SELECT * FROM annonce ";
+$sql = "SELECT * FROM annonce ORDER BY id DESC ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();

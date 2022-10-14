@@ -16,7 +16,7 @@ $id = $_SESSION["user_id"];
 
 
 
-$sql = "SELECT * FROM annonce WHERE user_id='$id'";
+$sql = "SELECT * FROM annonce  WHERE user_id='$id'  ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();

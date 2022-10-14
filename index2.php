@@ -13,7 +13,7 @@ if(!isset($_SESSION["user_id"])){
 
 
 
-  $sql = "SELECT * FROM annonce ";
+  $sql = "SELECT * FROM annonce ORDER BY id DESC ";
   $stmt = $conn->prepare($sql); 
 
   $stmt->execute();
