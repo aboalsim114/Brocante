@@ -1,4 +1,0 @@
-RewriteEngine On
-
-RewriteRule ^.{0}$ index.php
-RewriteRule ^Account index2.php

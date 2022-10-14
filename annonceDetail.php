@@ -18,8 +18,6 @@ require("./Config/config.php");
 
 
 
-
-
 ?>
 
 
@@ -59,19 +57,42 @@ else{
  <!-- detail border card -->
  
  
- <div class="productPage">
-        <div class="productTitre">
-            <h1><?=  $item["titre"]  ?></h1>
-        </div>
-    
-        <div class="productbody">
-        <p><?= $item["description"]  ?></p>
+
+
+
+
+
+    <div class="container">
+        
+
+            <div class="annonceProfile">
+                <h4>Prix : <?=  $item["prix"] ?>€</h4>
+                <a style="width : 80%" class="btn btn-success" href="#">Acheter</a>
+                <a style="width : 80%" class="btn btn-primary" href="#">Message</a>
+                
+            </div>
+            <div class="produitImg">
+                <img src="./img/<?=  $item["filename"]  ?>" alt="" srcset="">
+            </div>
+            <div class="produitTitre">
+                <h4><?= $item["titre"] ?> </h4>
+                
+            </div>
+            <div class="produitDescription">
+                <h4 >Descritpion  </h4>
+                <p><?=  $item["description"] ?></p>
+            </div>
+
+            <div class="map"></div>
+       
+        
     </div>
-        <div class="productImg">
-            <img src="./img/<?=  $item["filename"]  ?>" alt="" srcset="">
-        </div>
-    
-    </div>
+
+
+
+
+
+
 
 
     <!-- footer section -->

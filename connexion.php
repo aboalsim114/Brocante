@@ -23,6 +23,8 @@ if(isset($_POST["submit"])){
     if(mysqli_num_rows($result) == 1){
         while($row = mysqli_fetch_assoc($result)) {
             $_SESSION['user_id'] = $row["user_id"];
+            $_SESSION['nom'] = $row["nom"];
+            $_SESSION['prenom'] = $row["prenom"];
         }
         header("Location: index2.php");
         
