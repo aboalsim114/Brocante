@@ -65,7 +65,15 @@ $result = $stmt->get_result();
             <div class="card-titre">
                 <h2><?=  $row["titre"] ?></h2>
             </div>
-            <div class="card-footer"><a href="annonceDetail.php?id=<?= $row["id"] ?>">Voir Plus</a></div>
+            
+            
+                <div class="card-footer">
+                    <a href="annonceDetail.php?id=<?= $row["id"] ?>">Voir Plus</a>
+                    <a  onclick=" return confirm('est vous sur de vouloir supprimer ?')" style="color : red"  href="annonceDetail.php?id=<?= $row["id"] ?>">Supprimer</a>
+                    <a style="color : blue" href="annonceDetail.php?id=<?= $row["id"] ?>">Modifier</a>
+                </div>
+                
+            
 
         </div>
        

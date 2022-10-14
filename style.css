@@ -187,7 +187,7 @@ header>.searchForm {
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-family: "Montserrat", "Segoe UI", sans-serif;
     transition: all 2s ease-in-out;
 }

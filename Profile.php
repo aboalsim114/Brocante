@@ -33,7 +33,7 @@ if(isset($_POST["update"])){
 
   
 
-    $query = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postal='$postale',password='$password'  WHERE id='$id'";
+    $query = "UPDATE user SET nom='$nom', prenom='$prenom', adresse='$adresse',postal='$postale',password='$password'  WHERE user_id='$id'";
     $result = $conn->query($query);
     header("location:Profile.php");
    
