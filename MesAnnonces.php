@@ -70,7 +70,7 @@ $result = $stmt->get_result();
                 <div class="card-footer">
                     <a href="annonceDetail.php?id=<?= $row["id"] ?>">Voir Plus</a>
                     <a  onclick=" return confirm('est vous sur de vouloir supprimer ?')" style="color : red"  href="./Functions/SupprimerAnnonce.php?id=<?= $row["id"] ?>">Supprimer</a>
-                    <a style="color : blue" href="annonceDetail.php?id=<?= $row["id"] ?>">Modifier</a>
+                    <a style="color : blue" href="NewAnnonce.php?id=<?= $row["id"] ?>">Modifier</a>
                 </div>
                 
             
