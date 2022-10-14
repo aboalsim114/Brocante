@@ -92,6 +92,7 @@ header {
 
 footer {
     border: 1px solid black;
+    font-family: "Montserrat", "Segoe UI", sans-serif;
 }
 
 .searchForm>input[type="text"],
@@ -260,6 +261,7 @@ header>.searchForm {
     justify-content: space-around;
     border-radius: 10px;
     box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    font-family: "Montserrat", "Segoe UI", sans-serif;
 }
 
 h4 {
@@ -273,6 +275,7 @@ h4 {
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    font-family: "Montserrat", "Segoe UI", sans-serif;
 }
 
 .produitDescription {
@@ -286,4 +289,9 @@ h4 {
     word-break: break-all;
     border: 1px solid black;
     border-radius: 10px;
+    font-family: "Montserrat", "Segoe UI", sans-serif;
+}
+
+.container {
+    margin-top: 100px;
 }
