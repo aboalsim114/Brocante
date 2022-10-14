@@ -53,7 +53,7 @@ $result = $stmt->get_result();
 
   <?php  require("./Composants/Nav2.php") ?>
 
-
+ 
 
     <section class="cards-container">
         

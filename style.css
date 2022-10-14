@@ -93,6 +93,7 @@ header {
 footer {
     border: 1px solid black;
     font-family: "Montserrat", "Segoe UI", sans-serif;
+    text-align: center;
 }
 
 .searchForm>input[type="text"],
@@ -284,7 +285,7 @@ h4 {
     min-height: 220px;
     height: auto;
     margin-top: 20px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     padding: 10px;
     word-break: break-all;
     border: 1px solid black;
@@ -292,6 +293,59 @@ h4 {
     font-family: "Montserrat", "Segoe UI", sans-serif;
 }
 
+.map>iframe {
+    border: 1px solid black;
+    width: 676.9px;
+    max-width: 676.9px;
+    min-height: 220px;
+    height: auto;
+    margin-bottom: 100px;
+    padding: 10px;
+}
+
 .container {
     margin-top: 100px;
+}
+
+
+/* responsive mobile */
+
+@media screen and (max-width: 900px) and (orientation: portrait) {
+    nav {
+        width: auto;
+        height: 6rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo>img {
+        display: none;
+    }
+    header>.searchForm {
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        flex-direction: column;
+        background-color: rgb(245, 240, 240);
+        padding: 50px;
+    }
+    .card-titre {
+        display: none;
+    }
+    .annonceProfile {
+        width: 100%;
+        float: left;
+    }
+    .produitTitre,
+    .produitDescription,
+    .produitImg,
+    .map {
+        width: auto;
+    }
 }

@@ -5,6 +5,7 @@
         <div class="logo">
             
             <img  src="./img//Logo.png" alt="logo" srcset="">
+            
         </div>
         <div>
             
@@ -32,6 +33,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Déposer mon annonce</h5>
+        
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -53,12 +55,17 @@
                                 <label class="form-label" for="form2Example18">prix</label>
                             </div>
 
+                            <div class="form-outline mb-4">
+                                <input required name="postal" type="number" id="form2Example18" class="form-control form-control-lg" />
+                                <label class="form-label" for="form2Example18">code Postal</label>
+                            </div>
+
                             <div >
                             <input required name="image" type="file" class="form-control" id="customFile" />
                             </div>
                             <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                          <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Fermer</button>
+                          <button type="submit" name="submit" class="btn btn-primary">Publier</button>
                                           
                         </form>
                     </div>

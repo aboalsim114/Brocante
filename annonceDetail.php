@@ -83,7 +83,9 @@ else{
                 <p><?=  $item["description"] ?></p>
             </div>
 
-            <div class="map"></div>
+            <div class="map">
+            <div style="overflow:hidden;width: 676.9px;position: relative;"><iframe width="676.9" height="260" src="https://maps.google.com/maps?width=676.9&amp;height=260&amp;hl=en&amp;q=<?= $item["postal"]  ?>+(Titre)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/es/">embedgooglemaps ES</a> & <a href="https://theimpossiblequiz.info/the-impossible-quiz-2/">https://theimpossiblequiz.info/the-impossible-quiz-2/</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
+            </div>
        
         
     </div>

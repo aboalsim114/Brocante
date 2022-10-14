@@ -12,6 +12,7 @@ if(isset($_POST["submit"])){
     $titre = htmlspecialchars($_POST["titre"]);
     $description = htmlspecialchars($_POST["description"]);
     $prix = htmlspecialchars($_POST["prix"]);
+    $postal = htmlspecialchars($_POST["postal"]);
     $filename = $_FILES["image"]["name"];
     $tempname = $_FILES["image"]["tmp_name"];
     $folder = "../img/" . $filename;
@@ -19,7 +20,7 @@ if(isset($_POST["submit"])){
 
 
 
-    $sql = "INSERT INTO annonce (titre,description,filename,prix,user_id) VALUES ('$titre', '$description','$filename','$prix','$user_id')";
+    $sql = "INSERT INTO annonce (titre,description,filename,prix,user_id,postal) VALUES ('$titre', '$description','$filename','$prix','$user_id','$postal')";
 
     if(mysqli_query($conn , $sql)){
         $msgsuccess = "ton jeu a été ajouter";
