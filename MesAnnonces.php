@@ -14,15 +14,6 @@ $id = $_SESSION["id"];
 
 
 
-  $sql = : "SELECT * FROM annonce INNER JOIN user ON(annonce.userid=user.id)";
-  $stmt = $conn->prepare($sql); 
-
-  $stmt->execute();
-  $result = $stmt->get_result();
-
-
-
-
 
 
 
