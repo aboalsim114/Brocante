@@ -1,21 +1,25 @@
 <?php
+session_start();
+
 
 
 require("../Config/config.php");
 
-if(isset($_POST["submit"])){
+$user_id = $_SESSION["user_id"];
 
+if(isset($_POST["submit"])){
+    
     $titre = htmlspecialchars($_POST["titre"]);
     $description = htmlspecialchars($_POST["description"]);
     $prix = htmlspecialchars($_POST["prix"]);
     $filename = $_FILES["image"]["name"];
     $tempname = $_FILES["image"]["tmp_name"];
     $folder = "../img/" . $filename;
+    
 
 
 
-
-    $sql = "INSERT INTO annonce (titre,description,filename,prix) VALUES ('$titre', '$description','$filename','$prix')";
+    $sql = "INSERT INTO annonce (titre,description,filename,prix,user_id) VALUES ('$titre', '$description','$filename','$prix','$user_id')";
 
     if(mysqli_query($conn , $sql)){
         $msgsuccess = "ton jeu a été ajouter";

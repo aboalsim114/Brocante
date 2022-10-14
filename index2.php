@@ -4,7 +4,7 @@ session_start();
 
 require("./Config/config.php");
 
-if(!isset($_SESSION["id"])){
+if(!isset($_SESSION["user_id"])){
     header("Location: index.php");
     
     exit(); 

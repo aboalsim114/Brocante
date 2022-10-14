@@ -47,7 +47,7 @@ require("./Config/config.php");
 
 
   <?php
-  if(isset($_SESSION["id"])){
+  if(isset($_SESSION["user_id"])){
       require("./Composants/Nav2.php") ;
 }
 else{

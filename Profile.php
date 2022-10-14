@@ -10,9 +10,9 @@ require("./Config/config.php");
 
 
 
-$id = $_SESSION["id"];
+$id = $_SESSION["user_id"];
 
-$sql = "SELECT * FROM user WHERE id='$id' ";
+$sql = "SELECT * FROM user WHERE user_id='$id' ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();

@@ -4,13 +4,25 @@ session_start();
 
 require("./Config/config.php");
 
-if(!isset($_SESSION["id"])){
+if(!isset($_SESSION["user_id"])){
     header("Location: index.php");
     
     exit(); 
   }
 
-$id = $_SESSION["id"];
+$id = $_SESSION["user_id"];
+
+
+
+
+
+$sql = "SELECT * FROM annonce WHERE user_id='$id'";
+$stmt = $conn->prepare($sql); 
+
+$stmt->execute();
+$result = $stmt->get_result();
+
+
 
 
 
