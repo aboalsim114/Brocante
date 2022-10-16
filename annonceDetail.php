@@ -72,7 +72,8 @@ else{
            
             
                 <h4>  Prix : <?=  $item["prix"] ?>€</h4>
-                <h4>  categorie : <?=  $item["categorie"] ?></h4>
+                
+                
                 <a style="width : 80%" class="btn btn-success" href="#"> Message <i class="fa-solid fa-envelope"></i> </a>
                 
 
