@@ -6,11 +6,17 @@ require("./Config/config.php");
 
 
 
-$sql = "SELECT * FROM annonce ORDER BY id DESC ";
+
+
+
+
+
+$sql = "SELECT * FROM annonce  ORDER BY id DESC  LIMIT 4 ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();
 $result = $stmt->get_result();
+
 
 
 
@@ -45,13 +51,33 @@ $result = $stmt->get_result();
 
         <form class="searchForm" method="post">
             <input type="search" placeholder="rechercher un article">
-            <input type="text" name="" id="" placeholder="entrez une ville">
             <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         </form>
       
     </header>
 
 
+    <div class="filter">
+        <form   method="post">
+            <select name="date" id="date" placeholder="test">
+            <option value="" selected disabled hidden>Trier par : </option>
+                <option selected="selected" value="DESC">Sorties : ancienne</option>
+                <option value="ASC">Sorties : récentes</option>
+            </select>
+
+            <select name="categorie" id="Categorie" placeholder="test">
+            <option value="" selected disabled hidden>Categorie  : </option>
+                <option selected="selected" value="sport">Sport</option>
+                <option value="action">Action</option>
+                <option value="rbg">RBG</option>
+                <option value="fps">FPS</option>
+            </select>
+
+            <button style="width : 10%" class="btn btn-warning" name="submit" type="submit"> Filtrer <i class="fa-solid fa-magnifying-glass-arrow-right"></i></button>
+           
+           
+        </form>
+    </div>
     <section class="cards-container">
         
     <?php foreach($result as $row): ?>

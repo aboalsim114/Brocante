@@ -61,6 +61,15 @@
                                 <label class="form-label" for="form2Example18">code Postal</label>
                             </div>
 
+                            <select  class="form-select" name="categorie" aria-label="Default select example" required>
+                            <option value="" disabled selected>categorie</option>
+                                  <option value="sport">sport</option>
+                                  <option value="action">Action</option>
+                                  <option value="rbg">RPG</option>
+                                  <option value="FPS">FPS</option>
+                                  
+                          </select>
+
                             <div >
                             <input required name="image" type="file" class="form-control" id="customFile" />
                             </div>
