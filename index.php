@@ -16,6 +16,8 @@ $result = $stmt->get_result();
 
 
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +48,7 @@ $result = $stmt->get_result();
             <input type="text" name="" id="" placeholder="entrez une ville">
             <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         </form>
+      
     </header>
 
 
@@ -65,9 +68,12 @@ $result = $stmt->get_result();
        
         <?php endforeach ?>
         
-
+        
 
     </section>
+
+
+    
     
 
 
