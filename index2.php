@@ -13,7 +13,12 @@ if(!isset($_SESSION["user_id"])){
 
 
 
-  $sql = "SELECT * FROM annonce ORDER BY id DESC ";
+
+
+
+
+
+  $sql = "SELECT * FROM annonce   ORDER BY id DESC ";
   $stmt = $conn->prepare($sql); 
 
   $stmt->execute();
@@ -65,11 +70,7 @@ if(!isset($_SESSION["user_id"])){
 
     <div class="filter">
         <form   method="post">
-            <select name="date" id="date" placeholder="test">
-            <option value="" selected disabled hidden>Trier par : </option>
-                <option selected="selected" value="DESC">Sorties : ancienne</option>
-                <option value="ASC">Sorties : récentes</option>
-            </select>
+         
 
             <select name="categorie" id="Categorie" placeholder="test">
             <option value="" selected disabled hidden>Categorie  : </option>
@@ -87,8 +88,8 @@ if(!isset($_SESSION["user_id"])){
 
 
     <section class="cards-container">
-        
-    <?php while ($row = $result->fetch_assoc()): ?>
+   
+        <?php while ($row = $result->fetch_assoc()): ?>
         <div class="card">
             <div class="card-img">
                 <img src="./img/<?= $row["filename"]  ?>" alt="" srcset="">
@@ -101,9 +102,9 @@ if(!isset($_SESSION["user_id"])){
         </div>
        
         <?php endwhile ?>
-        
+            
 
-
+            
     </section>
 
 

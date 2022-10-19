@@ -1,6 +1,6 @@
 <nav>
         <div class="logo">
-            <img src="./img//Logo.png" alt="logo" srcset="">
+            <img src="./img/logo.png" alt="logo" srcset="">
         </div>
         <div>
             <ul class="SMN_effect-77">

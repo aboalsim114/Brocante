@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 require("./Config/config.php");
 
 if(!isset($_SESSION["user_id"])){

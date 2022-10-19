@@ -117,6 +117,31 @@ else{
     <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
 </body>
 
+
+
+<script>
+
+const changebtn = () => {
+
+    document.addEventListener("click", () => {
+        let add_to_favoris = document.getElementById("add_to_favoris");
+        
+        add_to_favoris.innerHTML = '<i class="fa-solid fa-heart-circle-check"></i>';
+       
+    })
+
+
+
+
+
+}
+
+
+
+</script>
+
+
+
 </html>
 <?php endforeach ?>
 
