@@ -60,7 +60,6 @@ if(!isset($_SESSION["user_id"])){
 
         <form class="searchForm" method="post">
            
-            <input type="search" placeholder="rechercher un article">
             <input type="text" name="" id="" placeholder="entrez une ville">
             <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
 
