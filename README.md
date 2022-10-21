@@ -3,7 +3,7 @@
 
 ## Prérequis
 - [php](https://www.php.net/downloads.php)
-- [Xampp](https://www.apachefriends.org/fr/index.html)
+- [xampp](https://www.apachefriends.org/fr/index.html)
 - [react-router](https://v5.reactrouter.com/native/guides/quick-start)
 - [phone](https://www.echosdunet.net/sites/echosdunet.net/files/telephone-android-ou-ios-825x293.png)
 
