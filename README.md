@@ -1,6 +1,6 @@
 
 # Brocante
-<img src="https://i.postimg.cc/7PGyH4VX/logo.png" alt="" width="200" height="200" />
+<img src="https://i.postimg.cc/7PGyH4VX/logo.png" alt="" width="300" height="300" />
 
 ## Prerequisites
 - [Expo](https://docs.expo.dev/development/getting-started/)
