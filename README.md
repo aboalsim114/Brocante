@@ -1,5 +1,3 @@
-
-# Brocante
 <img src="https://i.postimg.cc/7PGyH4VX/logo.png" alt="" width="300" height="300" />
 
 ## Prerequisites
