@@ -2,7 +2,7 @@
 <img src="https://i.postimg.cc/7PGyH4VX/logo.png" alt="" width="300" height="300" />
 
 ## Prérequis
-- [PHP](https://www.php.net/downloads.php)
+- [php](https://www.php.net/downloads.php)
 - [Xampp](https://www.apachefriends.org/fr/index.html)
 - [react-router](https://v5.reactrouter.com/native/guides/quick-start)
 - [phone](https://www.echosdunet.net/sites/echosdunet.net/files/telephone-android-ou-ios-825x293.png)
