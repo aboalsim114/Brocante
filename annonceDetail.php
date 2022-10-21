@@ -75,7 +75,9 @@ else{
                 
                 
                 <a style="width : 80%" class="btn btn-success" href="#"> Message <i class="fa-solid fa-envelope"></i> </a>
-                
+                <?php if(isset($_SESSION["user_id"])): ?>
+                <a style="width : 80%"  id="add_to_favoris" class="btn btn-info" href="./Functions/Add_to_favoris.php?id=<?=  $item["id"] ?>"> Favoris <i class="fa-regular fa-star"></i> </a>
+                <?php endif ?>
 
              
             </div>
@@ -119,26 +121,6 @@ else{
 
 
 
-<script>
-
-const changebtn = () => {
-
-    document.addEventListener("click", () => {
-        let add_to_favoris = document.getElementById("add_to_favoris");
-        
-        add_to_favoris.innerHTML = '<i class="fa-solid fa-heart-circle-check"></i>';
-       
-    })
-
-
-
-
-
-}
-
-
-
-</script>
 
 
 
