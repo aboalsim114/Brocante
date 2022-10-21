@@ -5,7 +5,7 @@
 - [php](https://www.php.net/downloads.php)
 - [xampp](https://www.apachefriends.org/fr/index.html)
 - [mysql](https://www.mysql.com/fr/)
-- [phone](https://www.echosdunet.net/sites/echosdunet.net/files/telephone-android-ou-ios-825x293.png)
+- [vscode](https://code.visualstudio.com/)
 
 ## How to install project
 - clone this repo `git clone https://github.com/Sebastien-jo/Petty-Care-Front.git`
