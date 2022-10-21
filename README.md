@@ -1,7 +1,7 @@
 # Brocante
 <img src="https://i.postimg.cc/7PGyH4VX/logo.png" alt="" width="300" height="300" />
 
-## Prerequisites
+## prérequis
 - [Expo](https://docs.expo.dev/development/getting-started/)
 - [Node.js](https://nodejs.org/en/download/)
 - [react-router](https://v5.reactrouter.com/native/guides/quick-start)
