@@ -40,7 +40,7 @@ Installer les dépendances
 Démarrer le serveur
 
 ```bash
-  localhost
+  php -S localhost:8000
 ```
 
 
