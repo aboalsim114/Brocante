@@ -1,6 +1,5 @@
 
 # Brocante
-![image](https://i.postimg.cc/7PGyH4VX/logo.png)
 <img src="https://i.postimg.cc/7PGyH4VX/logo.png" alt="" />
 
 ## Prerequisites
