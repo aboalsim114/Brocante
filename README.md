@@ -7,7 +7,7 @@
 - [mysql](https://www.mysql.com/fr/)
 - [vscode](https://code.visualstudio.com/)
 
-## How to install project
+## Comment installer le projet
 - clone this repo `git clone https://github.com/Sebastien-jo/Petty-Care-Front.git`
 - use the command `npm install --global expo-cli`
 (*This command will downloads dependencies defined in a package. json file and generates a node_modules folder with the installed modules.*)
