@@ -74,7 +74,7 @@ if(isset($_POST["update"])){
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle  mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $item["prenom"] . " " . $item["nom"]  ?></span><span class="text-black-50"><?= $item["email"] ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle  mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $item["prenom"] . " " . $item["nom"]  ?></span><span class="text-black-50"><?= $item["email"] ?></span><span>genre : <?=  $item["genre"] ?> </span></div>
         </div>
         <div class="col-md-5 border-right">
          
@@ -91,7 +91,7 @@ if(isset($_POST["update"])){
                     <div class="col-md-12"><label class="labels">adresse </label><input name="adresse" type="text" class="form-control" placeholder="<?= $item["adresse"]  ?>" value="<?= $item["adresse"]  ?>"></div>
                     <div class="col-md-12"><label class="labels">Code Postal</label><input type="text" name="postale" class="form-control" placeholder="<?= $item["postal"] ?>" value="<?= $item["postal"] ?>"></div>
                     <div class="col-md-12"><label class="labels">Email </label><input type="text" name="email" class="form-control" placeholder="<?= $item["email"]  ?>" value="<?= $item["email"]  ?>"></div>
-                    <div class="col-md-12"><label class="labels">Mot de passe</label><input type="password" name="password" class="form-control" placeholder="*********" value="<?= $item["password"] ?>"></div>
+                    <div class="col-md-12"><label class="labels">Mot de passe</label><input disabled type="password" name="password" class="form-control" placeholder="*********" value="<?= strlen($item["password"]) < 10 ?>"></div>
                 </div>
                
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" name="update" type="submit">Enregistrer le profil  <i class="fa-solid fa-pen-to-square"></i></button></div>

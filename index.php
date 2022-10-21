@@ -50,8 +50,8 @@ $result = $stmt->get_result();
     <header>
 
         <form class="searchForm" method="post">
-            <input type="search" placeholder="rechercher un article">
-            <button id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+            <input onkeyup="myFunction()" id="search" type="search" placeholder="rechercher un article">
+            <button  id="btn-trouver" type="submit" class="btn btn-primary">Trouver <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         </form>
       
     </header>
@@ -108,7 +108,23 @@ $result = $stmt->get_result();
 
     <?php  require("./Composants/Footer.php")  ?>
 
-
+        <script>
+        function myFunction() {
+    var input, filter, cards, cardContainer, h5, title, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    cardContainer = document.getElementById("cards-container");
+    cards = cardContainer.getElementsByClassName("card");
+    for (i = 0; i < cards.length; i++) {
+        title = cards[i].querySelector(".card-body h5.card-title");
+        if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+        </script>
 
     <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
 </body>
