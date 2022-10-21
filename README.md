@@ -8,7 +8,7 @@
 - [vscode](https://code.visualstudio.com/)
 
 ## Comment installer le projet
-- clone this repo `git clone https://github.com/Sebastien-jo/Petty-Care-Front.git`
+- cloner ce dépôt `https://github.com/aboalsim114/Brocante.git`
 - use the command `npm install --global expo-cli`
 (*This command will downloads dependencies defined in a package. json file and generates a node_modules folder with the installed modules.*)
 - and the command `npm install react-hook-form`
