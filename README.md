@@ -2,9 +2,11 @@
 # 👋
 
 
-# Project Title
+# La Brocante
 
-A brief description of what this project does and who it's for
+
+trouvez la bonne affaire sur le site référent de petites annonces de particulier à particulier et de professionnels.
+Déposez une annonce gratuite en toute simplicité pour vendre, rechercher, donner vos biens de seconde main ou promouvoir vos services
 
 
 ## Prérequis
