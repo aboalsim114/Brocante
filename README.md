@@ -1,6 +1,6 @@
 
-# Petty-Care-Front
-![image](https://user-images.githubusercontent.com/73281588/173239149-6cb44457-b5f8-4961-b54c-6d89119def65.png)
+# Brocante
+![image](https://i.postimg.cc/7PGyH4VX/logo.png)
 
 ## Prerequisites
 - [Expo](https://docs.expo.dev/development/getting-started/)
