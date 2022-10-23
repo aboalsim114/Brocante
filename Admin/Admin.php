@@ -14,7 +14,7 @@ if($_SESSION["role"] != "admin" ){
 
     // get users
 
-  $sql = "SELECT * FROM user";
+  $sql = "SELECT * FROM user WHERE role='user' ";
   $stmt = $conn->prepare($sql); 
 
   $stmt->execute();
@@ -69,8 +69,7 @@ if($_SESSION["role"] != "admin" ){
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#!"><?= $_SESSION["role"] ?> </a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -97,8 +96,16 @@ if($_SESSION["role"] != "admin" ){
                
             </nav>
         </div>
+        
         <div id="layoutSidenav_content">
+            
             <main>
+            
+          
+
+          
+
+
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
@@ -132,6 +139,7 @@ if($_SESSION["role"] != "admin" ){
                                 
                                     <tbody>
                                     <?php foreach($result as $item): ?>
+                                    
                                     <tr>
                                         <td><?= $item["user_id"]  ?></td>
                                         <td><?= $item["nom"]  ?></td>
@@ -139,7 +147,7 @@ if($_SESSION["role"] != "admin" ){
                                         <td><?=  $item["adresse"] ?></td>
                                         <td><?= $item["email"] ?></td>
                                         <td><<?= $item["role"]  ?></td>
-                                        <th><button onclick="return confirm('supprimer ? ')" class="btn btn-danger">Supprimer</button></th>
+                                        <th><a class="btn btn-danger" onclick="return confirm('supprimer ? ')" href="SupprimerUser.php?id=<?= $item["user_id"] ?>">Supprimer</a></th>
                                     </tr>
                                     
                                 </tbody>
@@ -182,7 +190,7 @@ if($_SESSION["role"] != "admin" ){
     <td><?=  $row["prix"] ?>$</td>
     <td><?= $row["categorie"]  ?></td>
     <td><?=  $row["user_id"] ?></td>
-    <th><button onclick="return confirm('supprimer ? ')" class="btn btn-danger">Supprimer</button></th>
+    <th><a class="btn btn-danger" onclick="return confirm('supprimer ? ')" href="SupprimerAnnonce.Admin.php?id=<?= $row["id"] ?>">Supprimer</a></th>
 
   </tr>
  <?php endforeach ?>
