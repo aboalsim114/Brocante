@@ -25,8 +25,15 @@ if(isset($_POST["submit"])){
             $_SESSION['user_id'] = $row["user_id"];
             $_SESSION['nom'] = $row["nom"];
             $_SESSION['prenom'] = $row["prenom"];
+            $_SESSION["role"] = $row["role"];
         }
-        header("Location: index2.php");
+        if($_SESSION["role"] == "admin"){
+            header("location:./Admin/Admin.php");
+            
+        }
+        else{
+            header("Location:index2.php");
+        }
         
         
     }else{
