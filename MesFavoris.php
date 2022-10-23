@@ -70,8 +70,9 @@ $resultt = $s->get_result();
  
 
     <section class="cards-container">
-        <h1 style="text-align : center">Mes Favoris</h1>
-        
+       
+        <h1 style="text-align : center"> Mes favoris</h1>
+     
     <?php while ($row = $resultt->fetch_assoc()): ?>
         <div class="card">
             <div class="card-img">
