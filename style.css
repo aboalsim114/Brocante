@@ -68,7 +68,7 @@ li {
 
 a {
     text-decoration: none;
-    color: #1a1a1a;
+    color: #222;
     font-family: inherit;
 }
 
@@ -147,6 +147,7 @@ header>.searchForm {
     justify-content: space-evenly;
     gap: 50px;
     color: #fff;
+    background-color: #051937;
 }
 
 .cards-container {

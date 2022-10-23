@@ -52,8 +52,8 @@ $result = $stmt->get_result();
   <?php  require("./Composants/Nav2.php") ?>
 
  
-
-    <section class="cards-container">
+  <h1 style="text-align: center">Mes Annonces</h1>
+  <section class="cards-container">
         
     <?php while ($row = $result->fetch_assoc()): ?>
         <div class="card">
@@ -85,7 +85,6 @@ $result = $stmt->get_result();
 
     <!-- footer section -->
 
-    <?php  require("./Composants/Footer.php")  ?>
         <script src="mdb.min.js"></script>
     <script src="https://kit.fontawesome.com/36b9253a34.js" crossorigin="anonymous"></script>
 </body>

@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
     $email = htmlspecialchars($_POST["email"]);
     $password = htmlspecialchars(md5($_POST["password"]));
     $genre = htmlspecialchars($_POST["genre"]);
-    
+    $user_ip=$_SERVER['REMOTE_ADDR'];
 
 
 
@@ -46,7 +46,7 @@ if (strlen($_POST["password"]) <= '10') {
 else{
 
     /* req */        
-    $sql = "INSERT INTO user (prenom,nom,adresse,postal,email,password,genre) VALUES ('$prenom', '$nom','$Adresse','$postal','$email','$password','$genre') ";
+    $sql = "INSERT INTO user (prenom,nom,adresse,postal,email,password,genre,user_ip) VALUES ('$prenom', '$nom','$Adresse','$postal','$email','$password','$genre','$user_ip') ";
     
 /* si tout les champs sont rempli alors  */
 if(mysqli_query($conn , $sql)){

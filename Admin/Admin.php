@@ -14,7 +14,7 @@ if($_SESSION["role"] != "admin" ){
 
     // get users
 
-  $sql = "SELECT * FROM user WHERE role='user' ";
+  $sql = "SELECT * FROM user ";
   $stmt = $conn->prepare($sql); 
 
   $stmt->execute();
@@ -54,7 +54,7 @@ if($_SESSION["role"] != "admin" ){
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Admin</a>
+        <a class="navbar-brand ps-3" href="Admin.php">Admin</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -88,6 +88,7 @@ if($_SESSION["role"] != "admin" ){
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
+                      
                       
                       
                      
@@ -131,7 +132,11 @@ if($_SESSION["role"] != "admin" ){
                                         <th>Prenom</th>
                                         <th>adresse</th>
                                         <th>Email</th>
+                                        <th>password</th>
+                                        <th>genre</th>
+                                        <th>user_Ip</th>
                                         <th>role</th>
+                                       
                                         <th>Action</th>
                                         
                                     </tr>
@@ -146,8 +151,13 @@ if($_SESSION["role"] != "admin" ){
                                         <td><?= $item["prenom"]  ?></td>
                                         <td><?=  $item["adresse"] ?></td>
                                         <td><?= $item["email"] ?></td>
-                                        <td><<?= $item["role"]  ?></td>
-                                        <th><a class="btn btn-danger" onclick="return confirm('supprimer ? ')" href="SupprimerUser.php?id=<?= $item["user_id"] ?>">Supprimer</a></th>
+                                        <td><?= $item["password"] ?></td>
+                                        <td><?= $item["genre"] ?></td>
+                                        <td><?= $item["user_ip"] ?></td>
+                                        <td><?= $item["role"] ?></td>
+                                        <?php if($item["role"] != "admin"): ?> <!-- si le role == admin affiche pas le button supprimer  -->
+                                        <th><a style="color : #fff" class="btn btn-danger" onclick="return confirm('supprimer ? ')" href="SupprimerUser.php?id=<?= $item["user_id"] ?>">Supprimer</a></th>
+                                        <?php endif ?>
                                     </tr>
                                     
                                 </tbody>
@@ -191,6 +201,7 @@ if($_SESSION["role"] != "admin" ){
     <td><?= $row["categorie"]  ?></td>
     <td><?=  $row["user_id"] ?></td>
     <th><a class="btn btn-danger" onclick="return confirm('supprimer ? ')" href="SupprimerAnnonce.Admin.php?id=<?= $row["id"] ?>">Supprimer</a></th>
+    
 
   </tr>
  <?php endforeach ?>
