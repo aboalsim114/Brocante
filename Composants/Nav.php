@@ -1,4 +1,6 @@
-<nav>
+
+   <link rel="stylesheet" href="./loader/loader.css">
+    <?php include("./loader/loader.php") ?><nav>
         <div class="logo">
             <img src="./img/logo.png" alt="logo" srcset="">
         </div>

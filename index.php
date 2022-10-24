@@ -7,11 +7,7 @@ require("./Config/config.php");
 
 
 
-
-
-
-
-$sql = "SELECT * FROM annonce  ORDER BY id DESC  LIMIT 4 ";
+$sql = "SELECT * FROM annonce   LIMIT 4 ";
 $stmt = $conn->prepare($sql); 
 
 $stmt->execute();
@@ -39,7 +35,10 @@ $result = $stmt->get_result();
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,800%7COpen+Sans:400,400i,700" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+ 
     <link rel="stylesheet" href="./style.css">
+    
+ >
 </head>
 
 <body>
@@ -67,8 +66,8 @@ $result = $stmt->get_result();
 
             <select name="categorie" id="Categorie" placeholder="test">
             <option value="" selected disabled hidden>Categorie  : </option>
-                <option selected="selected" value="sport">Sport</option>
-                <option value="action">Action</option>
+                <option value="sport">Sport</option>
+                <option   value="action">Action</option>
                 <option value="rbg">RBG</option>
                 <option value="fps">FPS</option>
             </select>
@@ -79,7 +78,8 @@ $result = $stmt->get_result();
         </form>
     </div>
     <section class="cards-container">
-        
+    
+  
     <?php foreach($result as $row): ?>
         <div class="card">
             <div class="card-img">
@@ -93,6 +93,7 @@ $result = $stmt->get_result();
         </div>
        
         <?php endforeach ?>
+       
         
         
 
