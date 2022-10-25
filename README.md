@@ -52,7 +52,5 @@ Démarrer le serveur
 - [@MOSSINDZAON Belmard-Ruchnelle]()
 
 
-## Images
 
-![App Images](https://i.postimg.cc/9MGFJqf8/screencapture-localhost-projet-2022-10-21-22-32-56.png)
 
